@@ -29,13 +29,14 @@ import { store, classes } from "../store";
 						:src="store.selectedClass.image"
 					/>
 					<select
-						class="bg-black border border-red-600 text-red-500 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block p-2.5 dark:bg-black dark:border-red-600 dark:placeholder-red-400 dark:text-red-500 dark:focus:ring-red-500 dark:focus:border-red-500 w-full"
+						class="bg-black border border-red-600 text-red-500 text-base rounded-lg focus:ring-red-500 focus:border-red-500 block p-2.5 dark:bg-black dark:border-red-600 dark:placeholder-red-400 dark:text-red-500 dark:focus:ring-red-500 dark:focus:border-red-500 w-full tracking-wide leading-none"
 						v-model="store.selectedClass"
 					>
 						<option
 							v-for="class_ in classes"
 							:key="class_"
 							:value="class_"
+							class="tracking-wide text-base"
 						>
 							{{ class_.name }}
 						</option>
