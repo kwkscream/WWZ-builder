@@ -20,10 +20,10 @@ import { RouterLink } from "vue-router";
 				</div>
 				<div class="flex items-center">
 					<RouterLink
-						to="/build-planner"
+						to="/source-code"
 						class="text-sm font-medium text-gray-400 hover:text-white transition-colors w-48 text-end"
 					>
-						Створити білд</RouterLink
+						Open Source</RouterLink
 					>
 				</div>
 			</nav>

@@ -1,6 +1,4 @@
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
 import { store, classes } from "../store";
 </script>
 
