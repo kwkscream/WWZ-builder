@@ -54,10 +54,11 @@ const toggleSelection = (colIndex, skillIndex) => {
 							:class="[
 								'w-19 h-19 rounded-full border-3 transition flex items-center justify-center',
 								selectedSkills[colIndex] === skillIndex
-									? 'border-green-500'
+									? 'border-green-500'	
 									: 'border-gray-500',
 								'hover:border-white',
 								'bg-gray-800',
+								''
 							]"
 							@mouseenter="hoveredSkill = skill"
 							@mouseleave="hoveredSkill = null"
