@@ -1,0 +1,332 @@
+export const slasher = [
+	[
+		{
+			name: "Shock Troops",
+			description:
+				"Start with Stun Gun and Compact SMG. Melee strikes damage two targets and do twice more damage when you're not tired. Melee attacks are not slower when tired",
+			isPassive: true,
+			image: "ShockTroops",
+		},
+		{
+			name: "Juiced Up II",
+			description:
+				"Stun Gun effect duration increased by 15%",
+			isPassive: true,
+			isPrestige: true,
+			image: "JuicedUpII",
+		},
+		{
+			name: "Flash Sale II",
+			description:
+				"Killing a stunned special zombie restores 5% of your primary weapon's ammunition",
+			isPassive: true,
+			isPrestige: true,
+			image: "FlashSaleII",
+		},
+	],
+	[
+		{
+			name: "Crowd Control",
+			description: "Push radius from melee attacks increased by 50%",
+			image: "CrowdControl",
+		},
+		{
+			name: "All Elbows",
+			description:
+				"Movement speed penalty when zombies are very close reduced by 100%",
+			image: "AllElbows",
+		},
+		{
+			name: "Rooted",
+			description:
+				"You can never be pinned down by usual zombies (does not affect special zombies)",
+			image: "Rooted",
+		},
+		{
+			name: "Crowd Control II",
+			description:
+				"Restore one equipment charge when your health drops below 35%",
+			image: "CrowdControlII",
+		},
+	],
+	[
+		{
+			name: "Juiced Up",
+			description:
+				"Stun Gun effect duration increased by 100%",
+			image: "JuicedUp",
+		},
+		{
+			name: "Zeus",
+			description:
+				"Increase Stun Gun range by 50% and target count to 20 (base range: 12 m, base target count: 15)",
+			image: "Zeus",
+		},
+		{
+			name: "High Voltage",
+			description:
+				"Stun Gun damage Increased by 150%",
+			image: "HighVoltage",
+		},
+		{
+			name: "Clear!",
+			description:
+				"Using the Stun Gun on a pinned teammate will get them to their feet",
+			image: "Clear",
+		},
+	],
+	[
+		{
+			name: "Bullet-dodger",
+			description:
+				"Take 100% less friendly fire from bullets while performing melee attacks",
+			image: "Bulletdodger",
+		},
+		{
+			name: "Nimble",
+			description:
+				"Take 50% less damage while performing melee attacks",
+			image: "Nimble",
+		},
+		{
+			name: "With My Last Breath",
+			description:
+				"Melee strikes damage 2 more targets when health is below 35%",
+			image: "WithMyLastBreath",
+		},
+		{
+			name: "Blood is boiling",
+			description:"You deal 50% more damage to special zombies with a melee weapon if your health is below 35%",
+			image: "Bloodisboiling",
+		},
+	],
+	[
+		{
+			name: "Slice and Dice",
+			description:
+				"You and all teammates can perform more melee strikes (+2) before becoming tired",
+			isPassive: true,
+			image: "SliceandDice",
+		},
+		{
+			name: "Zeus II",
+			description:
+				"Increase Stun Gun range by 15% [base: 12 meters]",
+			isPassive: true,
+			isPrestige: true,
+			image: "ZeusII",
+		},
+		{
+			name: "Get lost!",
+			description:
+				"Electric Grids can kill 5% more zombies for the whole team",
+			isPassive: true,
+			isPrestige: true,
+			image: "Getlost",
+		},
+	],
+	[
+		{
+			name: "Trophy Hunter",
+			description:
+				"Deal 25% more damage to special zombies",
+			image: "TrophyHunter",
+		},
+		{
+			name: "Wheatgrass",
+			description: "Health increased by 25%",
+			image: "Wheatgrass",
+		},
+		{
+			name: "Silent Killer",
+			description: "Start with a TMP5 SMG with silencer upgrade",
+			image: "SilentKiller",
+		},
+		{
+			name: "Where are you?",
+			description:
+				"All Lurkers within 10 meters are automatically marked",
+			image: "Whereareyou",
+		},
+	],
+	[
+		{
+			name: "Vigour",
+			description:
+				"Killing 10 zombies in rapid succession with a melee weapon grants temporary health boost (cooldown 30 seconds)",
+			image: "Vigour",
+		},
+		{
+			name: "Cloak and Dagger",
+			description:
+				"Killing 10 zombies in rapid succession with a melee weapon grants a masking effect (cooldown 30 seconds)",
+			image: "CloakandDagger",
+		},
+		{
+			name: "Third Hand",
+			description:
+				"Killing 5 zombies with melee strikes in rapid succession instantly reloads your primary weapon",
+			image: "ThirdHand",
+		},
+		{
+			name: "Relentlessly",
+			description:
+				"Killing 10 zombies in rapid succession with a melee weapon restores 5% of your health (cooldown: 30 seconds)",
+			image: "Relentlessly",
+		},
+	],
+	[
+		{
+			name: "Heavy Metal I",
+			description:
+				"Start with an improved Forest Warrior Chainsaw that deals 50% more damage and has 50% more fuel. All Forest Warrior Chainsaw pickups for you are also improved [base: 100 fuel]",
+			image: "HeavyMetalI",
+		},
+		{
+			name: "Heavy Metal II",
+			description:
+				"Starts with improved Taiga-12 Heavy Assault Shotgun that deals 25% more damage and has 25% more ammo. All Taiga-12 Heavy Assault Shotgun pickups for you also improved [base: 50 ammo]",
+			image: "HeavyMetalII",
+		},
+		{
+			name: "Battle Cry",
+			description:
+				"Automatically stand up from being pinned after 5 seconds",
+			image: "BattleCry",
+		},
+		{
+			name: "Thank you for the chance",
+			description:
+				"30% chance of using an Adrenaline kit without depleting your supply",
+			image: "Thankyouforthechance",
+		},
+	],
+	[
+		{
+			name: "Executioner",
+			description:
+				"Perform 1 more melee strike before becoming tired. Melee damage increased by 50%",
+			isPassive: true,
+			image: "Executioner",
+		},
+		{
+			name: "Executioner III",
+			description:
+				"Perform 1 more melee strike before becoming tired",
+			isPassive: true,
+			isPrestige: true,
+			image: "ExecutionerIII",
+		},
+		{
+			name: "Swapping Mags II",
+			description:
+				"SMG reload speed is increased by 5%",
+			isPassive: true,
+			isPrestige: true,
+			image: "SwappingMagsII",
+		},
+	],
+	[
+		{
+			name: "Shock Therapy",
+			description:
+				"You will not become fatigued when melee attacking zombies electrified by the Stun Gun",
+			image: "ShockTherapy",
+		},
+		{
+			name: "Samurai",
+			description:
+				"Killing 15 zombies in rapid succession allows you to hit 1 more target per melee strike for 10 seconds",
+			image: "Samurai",
+		},
+		{
+			name: "Bloodlust",
+			description:
+				"Killing special zombies with a melee weapon will increase firearm damage by 100% for 15 seconds",
+			image: "Bloodlust",
+		},
+		{
+			name: "This is invigorating",
+			description:
+				"Signature Strikes damage 1 more target",
+			image: "Thisisinvigorating",
+		},
+	],
+	[
+		{
+			name: "Spare Batteries",
+			description:
+				"Max capacity for Stun Gun charges increased to 4 [base: 83 charges]",
+			image: "SpareBatteries",
+		},
+		{
+			name: "Pickpocket",
+			description:
+				"Killing 15 zombies in rapid succession refills one equipment charge (cooldown 60 seconds)",
+			image: "Pickpocket",
+		},
+		{
+			name: "Loan Shark",
+			description:
+				"Killing a special zombie gives a 50% chance to restore one charge to your equipment",
+			image: "LoanShark",
+		},
+		{
+			name: "On one's own",
+			description:
+				"One equipment charge gets restored for you every 60 seconds",
+			image: "Ononesown",
+		},
+	],
+	[
+		{
+			name: "Flash Sale",
+			description:
+				"Using the Stun Gun restores 1% of your primary weapon's ammunition for every target you stun.",
+			image: "FlashSale",
+		},
+		{
+			name: "Swapping Mags!",
+			description:
+				"SMGs' reload speed increased by 25%",
+			image: "SwappingMags",
+		},
+		{
+			name: "Adrenaline",
+			description:
+				"Reload speed increased by 50% when health is below 35%",
+			image: "Adrenaline",
+		},
+		{
+			name: "Dead... reward",
+			description:
+				"Killing 10 zombies in rapid succession with a melee weapon restores 5% of your primary weapon's ammunition",
+			image: "Deadreward",
+		},
+	],
+	[
+		{
+			name: "Blade Master",
+			description:
+				"Melee strikes damage 1 more target",
+			isPassive: true,
+			image: "BladeMaster",
+		},
+		{
+			name: "Nimble II",
+			description:
+				"Take 10% less damage while performing melee attacks",
+			isPassive: true,
+			isPrestige: true,
+			image: "NimbleII",
+		},
+		{
+			name: "Wheatgrass II",
+			description:
+				"Health increased by 5%",
+			isPassive: true,
+			isPrestige: true,
+			image: "WheatgrassII",
+		},
+	],
+];

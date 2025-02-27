@@ -1,0 +1,332 @@
+export const vanguard = [
+	[
+		{
+			name: "Safeguard",
+			description:
+				"Start with Mobile Shield and M500 Shotgun. Take 100% less friendly fire damage while using Shield Charge or Blocking",
+			isPassive: true,
+			image: "Safeguard",
+		},
+		{
+			name: "Peripheral Vision",
+			description:
+				"Increase angle at which attacks will be blocked by your Shield by 10% (base: 220 deg)",
+			isPassive: true,
+			isPrestige: true,
+			image: "PeripheralVision",
+		},
+		{
+			name: "Secret Stash II",
+			description:
+				"Carried ammo capacity for primary weapons is increased by 5%",
+			isPassive: true,
+			isPrestige: true,
+			image: "SecretStashII",
+		},
+	],
+	[
+		{
+			name: "Quick Hands",
+			description: "Blocking zombie hit or performing Shield Charge reloads your primary and secondary weapons",
+			image: "QuickHands",
+		},
+		{
+			name: "Adrenaline Rush",
+			description:
+				"Blocking zombie hit or performing Shield Charge fully restores melee stamina",
+			image: "AdrenalineRush",
+		},
+		{
+			name: "Fancy Footwork",
+			description:
+				"Better maneuverability when using Shield Charge and you can move 30% faster while blocking",
+			image: "FancyFootwork",
+		},
+		{
+			name: "Breakthrough!",
+			description:
+				"Hitting an enemy while using the Shield Charge will grant you 75% temporary health",
+			image: "Breakthrough",
+		},
+	],
+	[
+		{
+			name: "Passive Aggression",
+			description:
+				"Shield Block can withstand incoming hits for 3 more seconds (base: 5 seconds)",
+			image: "PassiveAggression",
+		},
+		{
+			name: "All-Round Defense",
+			description:
+				"For the first 3 seconds Shield Block protects you from all directions",
+			image: "AllRoundDefense",
+		},
+		{
+			name: "Residual Defense",
+			description:
+				"Take 50% less damage from zombies for 3 seconds after Shield Block ends",
+			image: "ResidualDefense",
+		},
+		{
+			name: "Hoplite",
+			description:
+				"All teammates take 25% less damage if you hold the Shield Block within 5 meters of them",
+			image: "Hoplite",
+		},
+	],
+	[
+		{
+			name: "Conditioning",
+			description:
+				"You can perform 2 more Shield Charges per full shield energy (base: 2 charges)",
+			image: "Conditioning",
+		},
+		{
+			name: "Recuperation",
+			description:
+				"You won't be able to collect equipment bags, but your Shield energy will constantly recharge (140 seconds to replenish to maximum)",
+			image: "Recuperation",
+		},
+		{
+			name: "Pickpocket",
+			description:
+				"Killing 15 zombies in rapid succession refills one equipment charge (cooldown 30 seconds)",
+			image: "Pickpocket",
+		},
+		{
+			name: "Tax collector",
+			description:"You refill 1 equipment charge for each special zombie hit during a shield charge (cooldown: 30 seconds)",
+			image: "Taxcollector",
+		},
+	],
+	[
+		{
+			name: "Armor Plated",
+			description:
+				"You gain passive shield protection for 3 seconds when you start interacting with something (cooldown 10 sec)",
+			isPassive: true,
+			image: "ArmorPlated",
+		},
+		{
+			name: "Steadfast",
+			description:
+				"All zombie damage is reduced by 25% when using Shield Block",
+			isPassive: true,
+			isPrestige: true,
+			image: "Steadfast",
+		},
+		{
+			name: "Don't bother him!",
+			description:
+				"Take 15% less damage while using a Mortar or a Stationary Machine Gun",
+			isPassive: true,
+			isPrestige: true,
+			image: "Dontbotherhim",
+		},
+	],
+	[
+		{
+			name: "Stronger Together",
+			description:
+				"Health for you and all teammates increased by 7.5%",
+			image: "StrongerTogether",
+		},
+		{
+			name: "Outer Shell",
+			description: "When your health is below 30% incoming damage depletes Shield energy before health. Full Shield energy prevents damage up to 50% of health",
+			image: "OuterShell",
+		},
+		{
+			name: "Juggernaut",
+			description: "Health increased by 35% but sprint stamina decreased by 50%",
+			image: "Juggernaut",
+		},
+		{
+			name: "Guard dog",
+			description:
+				"Start with an improved Forest Warrior Chainsaw that deals 50% more damage and has 50% more fuel. All Forest Warrior Chainsaw pickups for you are also improved",
+			image: "Guarddog",
+		},
+	],
+	[
+		{
+			name: "Rolling Refill",
+			description:
+				"Passing near an Ammo Crate during a Shield Charge automatically refills your ammo",
+			image: "RollingRefill",
+		},
+		{
+			name: "Magnet",
+			description:
+				"Restore 2% of primary weapon ammo for each enemy killed with a Shield Charge",
+			image: "Magnet",
+		},
+		{
+			name: "Supply Train",
+			description:
+				"Passing near a teammate during a Shield Charge reloads their primary weapon. You receive 5% ammo for your primary weapon for each teammate reloaded",
+			image: "SupplyTrain",
+		},
+		{
+			name: "Special coating",
+			description:
+				"Passing near a teammate during a Shield Charge grants a 75% temporary health boost to them",
+			image: "Specialcoating",
+		},
+	],
+	[
+		{
+			name: "Freight Train",
+			description:
+				"You can kill 40% more zombies with a shield charge (base: 14 zombies)",
+			image: "FreightTrain",
+		},
+		{
+			name: "Shake It Off",
+			description:
+				"Performing a Shield Charge removes all negative effects received from special zombies",
+			image: "ShakeItOff",
+		},
+		{
+			name: "Long Run",
+			description:
+				"Your Shield Charge speed and covered distance increased by 20%",
+			image: "LongRun",
+		},
+		{
+			name: "Bad odor II",
+			description:
+				"There is a chance that killing a special zombie will cause it to drop a primary weapon (cooldown: 180 seconds)",
+			image: "BadodorII",
+		},
+	],
+	[
+		{
+			name: "On Your Feet",
+			description:
+				"A single incapacitated teammate within 2 meters of where you finish a Shield Charge will get back up on their feet",
+			isPassive: true,
+			image: "OnYourFeet",
+		},
+		{
+			name: "Secret Stash",
+			description:
+				"Carried ammo capacity for secondary weapons increased by 15%",
+			isPassive: true,
+			isPrestige: true,
+			image: "SecretStash",
+		},
+		{
+			name: "Strong Genes",
+			description:
+				"After getting infected, you can withstand for 2 more seconds before turning",
+			isPassive: true,
+			isPrestige: true,
+			image: "StrongGenes",
+		},
+	],
+	[
+		{
+			name: "Elbow Room",
+			description:
+				"When you, or a teammate within 2 meters of you, starts reviving an incapacitated character, surrounding enemies will be pushed back (cooldown 60 seconds)",
+			image: "ElbowRoom",
+		},
+		{
+			name: "Placebo Effect",
+			description:
+				"Heal 10% of max health when someone uses a medkit within 2 meters of you and you're not the target of healing",
+			image: "PlaceboEffect",
+		},
+		{
+			name: "Inspirational",
+			description:
+				"Killing 15 zombies in rapid succession while you are the only member of your team still standing respawns a randomly selected dead teammate (cooldown 60 seconds)",
+			image: "Inspirational",
+		},
+		{
+			name: "Risen from the ashes",
+			description:
+				"When you become the last member of your team standing, you gain temporary health (cooldown: 60 seconds)",
+			image: "Risenfromtheashes",
+		},
+	],
+	[
+		{
+			name: "Sturdy",
+			description:
+				"When your Shield Block is completely expended, you gain a temporary health boost (cooldown 60 sec)",
+			image: "Sturdy",
+		},
+		{
+			name: "Hurry Back",
+			description:
+				"Respawn time for the whole team decreased by 15%",
+			image: "HurryBack",
+		},
+		{
+			name: "Centre of Attention",
+			description:
+				"Activating Shield Block will force all zombies within 3 meters in front of you to target you instead of your teammates",
+			image: "CentreofAttention",
+		},
+		{
+			name: "Reinforced metal",
+			description:
+				"The Shield Block reduces all damage by 5%",
+			image: "Reinforcedmetal",
+		},
+	],
+	[
+		{
+			name: "Trail Blazer",
+			description:
+				"Finishing a Shield Charge sets enemies in front of you on fire (distance 2 meters)",
+			image: "TrailBlazer",
+		},
+		{
+			name: "You Made me Mad",
+			description:
+				"Melee attacks and firearms deal 50% more damage for 5 seconds after you holster the Shield",
+			image: "YouMademeMad",
+		},
+		{
+			name: "Avenger",
+			description:
+				"Firearm damage increased by 20% for each dead or incapacitated teammate",
+			image: "Avenger",
+		},
+		{
+			name: "Revenge",
+			description:
+				"You take 5% less damage for each killed or incapacitated teammate",
+			image: "Revenge",
+		},
+	],
+	[
+		{
+			name: "Breathing Room",
+			description:
+				"Automatically push back nearby zombies when you are hit and about to be incapacitated (cooldown 60 seconds)",
+			isPassive: true,
+			image: "BreathingRoom",
+		},
+		{
+			name: "Linebacker",
+			description:
+				"Shield Charge allows you to run for an additional 1 seconds (base: 5 seconds)",
+			isPassive: true,
+			isPrestige: true,
+			image: "Linebacker",
+		},
+		{
+			name: "Harvester",
+			description:
+				"Killing 15 zombies during a Shield Charge restores 5% rounds to the primary weapon's magazine",
+			isPassive: true,
+			isPrestige: true,
+			image: "Harvester",
+		},
+	],
+];

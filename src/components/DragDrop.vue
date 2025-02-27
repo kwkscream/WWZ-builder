@@ -14,6 +14,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { store } from "@/store";
 
 const isDragging = ref(false);
 const fileInput = ref(null);
@@ -46,9 +47,10 @@ const readFile = (file) => {
   const reader = new FileReader();
   reader.onload = async (e) => {
     try {
-      const data = JSON.parse(e.target?.result); // Перевірка на існування result
+      const data = JSON.parse(e.target?.result);
+      store.selectedClass.name = data.className;
       console.log("Завантажений JSON:", data);
-      window.dispatchEvent(new CustomEvent("json-loaded", { detail: { data } })); // Виправлено detail
+      window.dispatchEvent(new CustomEvent("json-loaded", { detail: { data } }));
       await nextTick();
     } catch (error) {
       console.error("Помилка завантаження JSON:", error);
