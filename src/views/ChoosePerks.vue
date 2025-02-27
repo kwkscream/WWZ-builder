@@ -1,10 +1,9 @@
 <script setup>
- import DragDrop from "../components/DragDrop.vue";
+import DragDrop from "../components/DragDrop.vue";
 
 import { store } from "../store";
 import { ref, computed, onMounted } from "vue";
 import { gunslinger } from "../data/skills/gunslinger";
-
 
 const isPrestige = ref(false);
 const hoveredSkill = ref(null);
@@ -35,10 +34,7 @@ const doubleSelect = (skill, i) => {
 				(f) => f.name !== skill.name,
 			);
 		} else {
-			selectedSkills.value.passive = [
-				...selectedSkills.value.passive,
-				skill,
-			];
+			selectedSkills.value.passive = [...selectedSkills.value.passive, skill];
 		}
 	} else {
 		// Оновлюємо `active` правильно, щоб Vue реагував
@@ -70,7 +66,7 @@ const exportToJson = () => {
 };
 
 const importFromJson = (event) => {
-	isPrestige.value = event.passive.some(skill => skill.isPrestige);
+	isPrestige.value = event.passive.some((skill) => skill.isPrestige);
 
 	console.log("Отримані дані з JSON:", event);
 	selectedSkills.value = event;
@@ -79,36 +75,53 @@ const importFromJson = (event) => {
 const renderKey = ref(0);
 
 const forceRerender = () => {
-  renderKey.value += 1; // Міняємо key, що змушує Vue оновити DOM
+	renderKey.value += 1; // Міняємо key, що змушує Vue оновити DOM
 };
 
-
 onMounted(() => {
-  window.addEventListener("json-loaded", (event) => {
-    const jsonData = event.detail?.data; // Безпечне отримання JSON
-    if (jsonData) {
-      importFromJson(jsonData); // Передаємо дані у функцію
-    }
-  });
+	window.addEventListener("json-loaded", (event) => {
+		const jsonData = event.detail?.data; // Безпечне отримання JSON
+		if (jsonData) {
+			importFromJson(jsonData); // Передаємо дані у функцію
+		}
+	});
 });
-
-
 </script>
 
 <template>
-
-	<DragDrop/>
+	<DragDrop />
 	<!-- інфа шо за клас пікнули -->
 
-	<div class="flex justify-center items-center gap-2 pt-5 pb-5">
+	<div class="flex justify-center items-center gap-2">
 		<h2 class="text-4xl font-bold mb-4 text-white text-center">
 			Обраний клас -
 			<span class="text-red-600">{{ store.selectedClass.name }}</span>
 		</h2>
 		<img width="63" height="57" :src="store.selectedClass.image" />
 	</div>
+	<div class="flex items-center justify-center mt-2 mb-5 flex-col" >
+		<button
+			@click="exportToJson"
+			class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+		>
+			Зберегти білд
+		</button>
+		<div class="flex items-center justify-center">
+			<input
+				v-model="isPrestige"
+				id="default-checkbox"
+				type="checkbox"
+				value=""
+				class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+			/>
+			<label
+				for="default-checkbox"
+				class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+				>Престиж</label
+			>
+		</div>
+	</div>
 	<div class="flex justify-center">
-		<input type="checkbox" name="" id="" v-model="isPrestige" />
 		<div class="flex gap-2">
 			<div v-for="(col, i) in gunslinger" class="flex gap-2 flex-col">
 				<label
@@ -127,7 +140,6 @@ onMounted(() => {
 					@mouseenter="hoveredSkill = skill"
 					@mouseleave="hoveredSkill = null"
 				>
-
 					<input
 						type="radio"
 						:name="skill.isPassive ? skill.name : i"
@@ -135,9 +147,7 @@ onMounted(() => {
 						@click="doubleSelect(skill, i)"
 						:checked="
 							skill.isPassive
-								? selectedSkills.passive.some(
-										(s) => s.name === skill.name,
-									)
+								? selectedSkills.passive.some((s) => s.name === skill.name)
 								: selectedSkills.active[i]?.name === skill.name
 						"
 						class="sr-only"
@@ -154,17 +164,7 @@ onMounted(() => {
 		<p>{{ hoveredSkill.description }}</p>
 	</div>
 
-	<h3 class="text-4xl font-bold mb-4 text-white text-center">
-		Обрані навички - {{ selectedNodes }}
-	</h3>
-	<button
-		@click="exportToJson"
-		class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-	>
-		Зберегти вибрані навички
-	</button>
-
-	<label
+<!-- 	<label
 		class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
 		for="file_input"
 		>Upload file</label
@@ -174,8 +174,9 @@ onMounted(() => {
 		id="file_input"
 		type="file"
 		@change="importFromJson"
-		accept="application/json">
+		accept="application/json"
 	/>
+	/> -->
 </template>
 
 <style scoped></style>
