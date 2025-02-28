@@ -1,17 +1,17 @@
 <script setup>
 import DragDrop from "../components/DragDrop.vue";
 
-import { gunslinger } from "@/data/skills/PesPatron"
+
 import { store } from "../store";
 import { ref, onMounted } from "vue";
 import { dronemaster } from "@/data/skills/Dronemaster.js";
-// import { gunslinger } from "@/data/skills/Gunslinger.js";
 import { exterminator } from "@/data/skills/Exterminator.js";
 import { fixer } from "@/data/skills/Fixer.js";
 import { medic } from "@/data/skills/Medic.js";
 import { slasher } from "@/data/skills/Slasher.js";
 import { hellraiser } from "@/data/skills/Hellraiser.js";
 import { vanguard } from "@/data/skills/Vanguard.js";
+import { gunslinger } from "@/data/skills/Gunslinger"
 
 
 
