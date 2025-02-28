@@ -1,0 +1,5 @@
+{
+  "build": {
+    "viteConfig": "vite.config.js"
+  }
+}
