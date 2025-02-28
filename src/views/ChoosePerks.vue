@@ -4,7 +4,7 @@ import DragDrop from "../components/DragDrop.vue";
 import { store } from "../store";
 import { ref, onMounted } from "vue";
 import { dronemaster } from "@/data/skills/Dronemaster.js";
-import { gunslinger } from "@/data/skills/Gunslinger.js";
+// import { gunslinger } from "@/data/skills/Gunslinger.js";
 import { exterminator } from "@/data/skills/Exterminator.js";
 import { fixer } from "@/data/skills/Fixer.js";
 import { medic } from "@/data/skills/Medic.js";
@@ -16,7 +16,7 @@ import { vanguard } from "@/data/skills/Vanguard.js";
 
 const Classes = {	
 	"Dronemaster": dronemaster,
-	"Gunslinger" : gunslinger,
+	// "Gunslinger" : gunslinger,
 	"Exterminator": exterminator,
 	"Fixer": fixer,
 	"Medic": medic,
