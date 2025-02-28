@@ -1,7 +1,7 @@
 <script setup>
 import DragDrop from "../components/DragDrop.vue";
 
-import { gunslinger } from "@/data/skills/Gunslinger"
+import { gunslinger } from "@/data/skills/PesPatron"
 import { store } from "../store";
 import { ref, onMounted } from "vue";
 import { dronemaster } from "@/data/skills/Dronemaster.js";
