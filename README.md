@@ -2,7 +2,7 @@
 WWZ Builder – це веб-застосунок, створений для гравців World War Z, який дозволяє зручно формувати та зберігати власні білди для всіх класів у грі.
 ![](https://github.com/kwkscream/WWZ-builder/blob/master/public/Screenshots/mainPage.png)
 
-##Основні можливості:
+## Основні можливості:
 ✅ Вибір класу – обирай будь-який доступний клас у грі та налаштовуй його здібності.
 ![](https://github.com/kwkscream/WWZ-builder/blob/master/public/Screenshots/choose.png)
 
