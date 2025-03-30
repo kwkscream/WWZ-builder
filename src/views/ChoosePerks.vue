@@ -110,7 +110,7 @@ onMounted(() => {
 <template>
 	<DragDrop />
 	<!-- інфа шо за клас пікнули -->
-
+	<div class="flex-col items-center justify-center h-screen">
 	<div class="flex justify-center items-center gap-2">
 		<h2 class="text-4xl font-bold mb-4 text-white text-center">
 			Обраний клас -
@@ -182,6 +182,7 @@ onMounted(() => {
 	>
 		<h3 class="font-bold">{{ hoveredSkill.name }}</h3>
 		<p>{{ hoveredSkill.description }}</p>
+	</div>
 	</div>
 </template>
 

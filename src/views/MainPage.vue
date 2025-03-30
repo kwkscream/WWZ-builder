@@ -3,8 +3,8 @@ import { store, classes } from "../store";
 </script>
 
 <template>
-	<div class="flex justify-center items-center flex-col pt-5 pb-5">
-		<div class="w-[1500px] my-0 mx-auto">
+	<div class="flex-col items-center justify-center">
+		<div class="max-w-[1500px] w-full mx-auto">
 			<h1 class="text-4xl font-bold mb-4 text-white text-center">
 				Створи власну або обери вже готову
 				<span class="text-red-600">збірку</span>

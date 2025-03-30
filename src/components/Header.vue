@@ -4,7 +4,7 @@ import { RouterLink } from "vue-router";
 
 <template>
 	<header class="border-b border-red-900">
-		<div class="w-[1500px] my-0 mx-auto">
+		<div class="max-w-[1500px] w-full mx-auto">
 			<nav class="flex justify-between p-6">
 				<div class="flex items-center justify-center">
 					<RouterLink
@@ -15,7 +15,7 @@ import { RouterLink } from "vue-router";
 				</div>
 				<div class="flex items-center justify-center">
 					<RouterLink to="/"
-						><img src="../assets/wwz-logo.png" class="w-35 h-15"
+						><img src="../assets/wwz-logo.png" class="w-[140px] h-[60px]"
 					/></RouterLink>
 				</div>
 				<div class="flex items-center">

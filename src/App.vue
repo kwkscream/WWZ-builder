@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/vue';
 <template>
     <Analytics />
     <Header />
-    <main class="p-4 h-[700px]">
+    <main class="p-4 h-auto">
       <RouterView />
     </main>
 </template>
