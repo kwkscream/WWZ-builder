@@ -113,7 +113,7 @@ onMounted(() => {
 	<div class="flex-col items-center justify-center h-screen">
 	<div class="flex justify-center items-center gap-2">
 		<h2 class="text-4xl font-bold mb-4 text-white text-center">
-			Обраний клас -
+			{{$t('selected_class')}} -
 			<span class="text-red-600">{{ store.selectedClass.name }}</span>
 		</h2>
 		<img width="63" height="57" :src="store.selectedClass.image" />
@@ -123,7 +123,7 @@ onMounted(() => {
 			@click="exportToJson"
 			class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
 		>
-			Зберегти білд
+			{{$t('save_build')}}
 		</button>
 		<div class="flex items-center justify-center">
 			<input
@@ -136,7 +136,7 @@ onMounted(() => {
 			<label
 				for="default-checkbox"
 				class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-				>Престиж</label
+				>{{$t('prestige')}}</label
 			>
 		</div>
 	</div>
