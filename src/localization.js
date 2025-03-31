@@ -16,6 +16,7 @@ export const i18n = createI18n({
     selected_class: "Selected class",
     save_build: "Save build",
     prestige: "Prestige",
+    drag_drop: "Drop the JSON file",
     },
     uk: {
     	title:"Створи власну або імпортуй вже готову",
@@ -28,7 +29,8 @@ export const i18n = createI18n({
 		to_build:"Перейти до білду",
 		selected_class: "Обраний клас",
 		save_build: "Зберегти білд",
-		prestige: "Престиж"
+		prestige: "Престиж",
+		drag_drop: "Відпустіть JSON-файл для завантаження",
     }
   }
 })

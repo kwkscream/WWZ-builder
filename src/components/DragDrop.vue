@@ -6,7 +6,7 @@
     @dragleave.prevent="onDragLeave"
     @drop.prevent="onDrop"
   >
-    <p>Відпустіть JSON-файл для завантаження</p>
+    <p>{{$t('drag_drop')}}</p>
   </div>
 
   <input type="file" accept=".json" @change="handleFileUpload" hidden ref="fileInput" />
