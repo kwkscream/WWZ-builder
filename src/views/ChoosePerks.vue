@@ -148,7 +148,7 @@ onMounted(() => {
 						v-for="(skill, skillIndex) in col"
 						:key="skill.name + renderKey"
 						:class="[
-							'w-22 h-22 rounded-full border-3 transition flex items-center justify-center',
+							'w-[80px] h-[80px] rounded-full border-3 transition flex items-center justify-center',
 							'hover:border-white',
 							'bg-gray-500',
 							'border-gray-500',
