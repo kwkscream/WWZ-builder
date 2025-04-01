@@ -108,7 +108,7 @@ onMounted(() => {
 <template>
 	<DragDrop />
 	<!-- інфа шо за клас пікнули -->
-	<div class="flex-col items-center justify-center h-screen">
+	<div class="flex-col items-center justify-center h-screen main-content">
 		<div class="flex justify-center items-center gap-2">
 			<h2 class="text-4xl font-bold mb-4 text-white text-center">
 				{{ $t("selected_class") }} -
@@ -147,6 +147,7 @@ onMounted(() => {
 					<label
 						v-for="(skill, skillIndex) in col"
 						:key="skill.name + renderKey"
+						class="grid-item"
 						:class="[
 							'w-[80px] h-[80px] rounded-full border-3 transition flex items-center justify-center',
 							'hover:border-white',
@@ -194,7 +195,7 @@ onMounted(() => {
 		</div>
 		<div
 			v-if="hoveredSkill"
-			class="text-center mx-auto w-[600px] mt-[20px] p-2 border border-gray-200 bg-gray-800 text-white rounded"
+			class="text-center mx-auto w-[600px] mt-[20px] p-2 border border-gray-200 bg-gray-800 text-white rounded hovered-skill"
 		>
 			<h3 class="font-bold">{{ hoveredSkill.name }}</h3>
 			<p>{{ hoveredSkill.description }}</p>
@@ -202,4 +203,13 @@ onMounted(() => {
 	</div>
 </template>
 
-<style scoped></style>
+<style scoped>
+	@media (max-width: 768px){
+		.main-content{
+			width: 100%;
+		}
+		.hovered-skill{
+			display: none;
+		}
+	}
+</style>
