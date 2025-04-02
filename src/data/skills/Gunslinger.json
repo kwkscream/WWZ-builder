@@ -278,11 +278,11 @@
 			"image": "FireinTheHoleII"
 		},
 		{
-			"name": "Sleight of Hand",
+			"name": "Sleight of Hand II",
 			"description": "Switch weapons 25% faster (the bonus is stackable but can't be higher than 150%)",
 			"isPassive": true,
 			"isPrestige": true,
-			"image": "SleightofHand"
+			"image": "SleightofHandII"
 		}
 	]
 ]

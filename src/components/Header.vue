@@ -95,7 +95,6 @@ onUnmounted(() => {
 	}
 }
 
-/* Логотип теж прихований на менших екранах */
 @media (max-width: 412px) {
 	.logo {
 		display: none;
@@ -105,7 +104,6 @@ onUnmounted(() => {
 	}
 }
 
-/* Бургер-меню повністю зникає після 413px */
 @media (min-width: 413px) {
 	.burger-menu {
 		display: none !important;
