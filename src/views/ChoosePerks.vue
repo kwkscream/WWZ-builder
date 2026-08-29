@@ -3,6 +3,12 @@ import DragDrop from "../components/DragDrop.vue";
 
 import { store } from "../store";
 import { ref, onMounted } from "vue";
+import { useI18n } from "vue-i18n";
+import { 
+	getBuildShareUrl, 
+	getBuildFromUrl,
+	decodeBuildFromFragment
+} from "@/utils/buildEncoder";
 
 import dronemaster from "@/data/skills/Dronemaster.json";
 import exterminator from "@/data/skills/Exterminator.json";
@@ -12,6 +18,8 @@ import slasher from "@/data/skills/Slasher.json";
 import hellraiser from "@/data/skills/Hellraiser.json";
 import vanguard from "@/data/skills/Vanguard.json";
 import gunslinger from "@/data/skills/Gunslinger.json";
+
+const { t } = useI18n();
 
 const Classes = {
 	Dronemaster: dronemaster,
@@ -26,6 +34,10 @@ const Classes = {
 
 const isPrestige = ref(false);
 const hoveredSkill = ref(null);
+const showShareModal = ref(false);
+const shareUrl = ref('');
+const displayUrl = ref('');
+const copySuccess = ref(false);
 
 const selectedSkills = ref({
 	passive: [],
@@ -89,7 +101,69 @@ const importFromJson = (event) => {
 	selectedSkills.value = event;
 };
 
+const shareBuild = () => {
+	try {
+		showShareModal.value = true;
+		copySuccess.value = false;
+
+		const buildData = {
+			...selectedSkills.value,
+			className: store.selectedClass.name,
+		};
+
+		// Generate compact share URL with fragment
+		shareUrl.value = getBuildShareUrl(buildData, store.selectedClass.name);
+		
+		// Extract just the fragment part for display
+		displayUrl.value = shareUrl.value;
+	} catch (error) {
+		console.error('Failed to generate share URL:', error);
+		shareUrl.value = '';
+		displayUrl.value = '';
+		alert(t('share_error'));
+	}
+};
+
+const copyShareUrl = async () => {
+	try {
+		await navigator.clipboard.writeText(shareUrl.value);
+		copySuccess.value = true;
+		
+		// Reset success message after 2 seconds
+		setTimeout(() => {
+			copySuccess.value = false;
+		}, 2000);
+	} catch (error) {
+		console.error('Failed to copy URL:', error);
+		alert('Failed to copy URL to clipboard');
+	}
+};
+
+const closeShareModal = () => {
+	showShareModal.value = false;
+	shareUrl.value = '';
+	displayUrl.value = '';
+};
+
+const loadBuildFromUrl = () => {
+	const buildData = getBuildFromUrl();
+	
+	if (buildData) {
+		try {
+			importFromJson(buildData);
+			console.log("Build loaded from URL fragment:", buildData);
+		} catch (error) {
+			console.error('Failed to load build from URL:', error);
+			alert(t('invalid_build'));
+		}
+	}
+};
+
 onMounted(() => {
+	// Load build from URL if present
+	loadBuildFromUrl();
+
+	// Handle JSON file drops
 	window.addEventListener("json-loaded", (event) => {
 		const jsonData = event.detail?.data;
 		if (jsonData) {
@@ -111,12 +185,20 @@ onMounted(() => {
 			<img width="63" height="57" class="selected_img" :src="store.selectedClass.image" />
 		</div>
 		<div class="flex items-center justify-center mt-2 mb-5 flex-col">
-			<button
-				@click="exportToJson"
-				class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-			>
-				{{ $t("save_build") }}
-			</button>
+			<div class="flex gap-2 mb-4">
+				<button
+					@click="exportToJson"
+					class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+				>
+					{{ $t("save_build") }}
+				</button>
+				<button
+					@click="shareBuild"
+					class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-blue-600 rounded-full border border-blue-600 hover:bg-blue-700 focus:z-10 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 dark:bg-blue-600 dark:border-blue-600 dark:hover:bg-blue-700 transition-all duration-300 transform hover:scale-105"
+				>
+					{{ $t("share_build") }}
+				</button>
+			</div>
 			<div class="flex items-center justify-center">
 				<input
 					v-model="isPrestige"
@@ -193,6 +275,65 @@ onMounted(() => {
 			<p>{{ hoveredSkill.description }}</p>
 		</div>
 	</div>
+
+	<!-- Share Modal -->
+	<transition
+		enter-active-class="transition duration-300 ease-out"
+		enter-from-class="opacity-0 scale-95"
+		enter-to-class="opacity-100 scale-100"
+		leave-active-class="transition duration-200 ease-in"
+		leave-from-class="opacity-100 scale-100"
+		leave-to-class="opacity-0 scale-95"
+	>
+		<div
+			v-if="showShareModal"
+			class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+			@click="closeShareModal"
+		>
+			<div
+				class="bg-gray-800 rounded-lg p-6 max-w-md w-full border border-gray-600 transform transition-all"
+				@click.stop
+			>
+				<h3 class="text-xl font-bold text-white mb-4">{{ $t("share_build") }}</h3>
+
+				<div class="space-y-4">
+					<!-- Share URL Display (compact fragment) -->
+					<div class="bg-gray-700 rounded p-3 break-all">
+						<p class="text-sm text-gray-300 mb-2">{{ $t("build") }}:</p>
+						<p class="text-blue-400 font-mono text-sm cursor-pointer hover:text-blue-300 transition">
+							{{ displayUrl }}
+						</p>
+						<p class="text-xs text-gray-400 mt-2">✓ Компактне, працює везде</p>
+					</div>
+
+					<!-- Copy Button -->
+					<button
+						@click="copyShareUrl"
+						:class="[
+							'w-full py-2 px-4 rounded-lg font-medium transition-all duration-300 transform',
+							copySuccess
+								? 'bg-green-600 text-white scale-105'
+								: 'bg-blue-600 text-white hover:bg-blue-700 hover:scale-105',
+						]"
+					>
+						{{
+							copySuccess
+								? $t("copy_to_clipboard")
+								: $t("copy_link_btn")
+						}}
+					</button>
+
+					<!-- Close Button -->
+					<button
+						@click="closeShareModal"
+						class="w-full py-2 px-4 rounded-lg font-medium bg-gray-700 text-gray-200 hover:bg-gray-600 transition-all duration-300"
+					>
+						Close
+					</button>
+				</div>
+			</div>
+		</div>
+	</transition>
 </template>
 
 <style scoped>

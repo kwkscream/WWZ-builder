@@ -14,13 +14,18 @@ export const i18n = createI18n({
     equipment: "Equipment",
     to_build: "Go to the build",
     selected_class: "Selected class",
-    save_build: "Save build",
+    save_build: "Download build file",
     prestige: "Prestige",
     drag_drop: "Drop the JSON file",
+    share_build: "Copy build link",
+    copy_to_clipboard: "Copied to clipboard!",
+    copy_link_btn: "Copy link",
+    share_error: "Error generating share link",
+    invalid_build: "Invalid build link",
     },
     uk: {
     	title:"Створи власну або імпортуй вже готову",
-    	build:"збірку",
+    	build:"посилання на білд",
     	sub_title: `Створи свій унікальний та непереможний клас завдяки нашому білдеру класів.
 					Обирай клас та кастомізуй його навички під себе, все в твоїх руках!`,
 		choose_class: "Обрати клас",
@@ -28,9 +33,14 @@ export const i18n = createI18n({
 		equipment: "Спорядження",
 		to_build:"Перейти до білду",
 		selected_class: "Обраний клас",
-		save_build: "Зберегти білд",
+		save_build: "Завантажити файл білду",
 		prestige: "Престиж",
 		drag_drop: "Відпустіть JSON-файл для завантаження",
+		share_build: "Копіювати посилання на білд",
+		copy_to_clipboard: "Скопійовано в буфер обміну!",
+		copy_link_btn: "Копіювати посилання",
+		share_error: "Помилка при створенні посилання",
+		invalid_build: "Невалідне посилання на білд",
     }
   }
 })
