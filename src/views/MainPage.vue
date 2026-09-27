@@ -3,20 +3,20 @@ import { store, classes } from "../store";
 </script>
 
 <template>
-	<div class="flex-col items-center justify-center">
+	<div class="flex flex-col items-center justify-center">
 		<div class="max-w-[1500px] w-full mx-auto main-content">
-			<h1 class="text-4xl font-bold mb-4 text-white text-center title">
+			<h1 class="text-3xl sm:text-4xl font-bold mb-4 text-white text-center title">
 				{{ $t("title") }}
 				<span class="text-red-600">{{ $t("build") }}</span>
 			</h1>
 			<p
-				class="text-gray-400 max-w-xl mx-auto text-center mb-[35px] break-words"
+				class="text-gray-400 max-w-xl mx-auto text-center mb-[35px] break-words subtitle"
 			>
 				{{ $t("sub_title") }}
 			</p>
 
-			<div class="max-w-md mx-auto mt-10 p-6">
-				<h2 class="text-4xl font-bold mb-10 text-white text-center">
+			<div class="max-w-md mx-auto mt-10 p-4 sm:p-6">
+				<h2 class="text-3xl sm:text-4xl font-bold mb-6 sm:mb-10 text-white text-center">
 					{{ $t("choose_class") }}
 				</h2>
 				<div class="flex gap-3">
@@ -83,20 +83,12 @@ import { store, classes } from "../store";
 <style scoped>
 @media (max-width: 768px) {
 	.main-content {
-		width: 90%;
-		max-width: 600px;
+		width: 100%;
 		margin: 0 auto;
 	}
-	body {
-		overflow-x: hidden;
-		box-sizing: border-box;
-	}
 	.subtitle {
-		word-wrap: break-word; /* Перенесення довгих слів */
+		word-wrap: break-word;
 		overflow-wrap: break-word;
-	}
-	@media (max-width: 639px) {
-		
 	}
 }
 </style>

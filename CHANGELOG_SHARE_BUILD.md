@@ -93,7 +93,7 @@ http://example.com/build-planner#Gunslinger/p:Gimme%20a%20Reason,My%20Bad/a:1:Fi
 shareBuild() {
     const buildData = { passive: [...], active: {...}, className: "Gunslinger" };
     shareUrl = getBuildShareUrl(buildData, "Gunslinger");
-    // shareUrl = "http://localhost:5173/build-planner#Gunslinger/p:name/a:1:name"
+    // shareUrl = "<origin>/build-planner#Gunslinger/p:name/a:1:name"
     displayUrl = shareUrl;
 }
 
@@ -150,7 +150,7 @@ loadBuildFromUrl() {
 
 **Посилання:**
 ```
-http://localhost:5173/build-planner#Gunslinger/p:Gimme%20a%20Reason,My%20Bad/a:1:Fire%20in%20the%20Hole|3:Heavy%20Metal
+<origin>/build-planner#Gunslinger/p:Gimme%20a%20Reason,My%20Bad/a:1:Fire%20in%20the%20Hole|3:Heavy%20Metal
 ```
 
 **Розбір:**

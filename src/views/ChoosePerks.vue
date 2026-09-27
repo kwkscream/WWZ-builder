@@ -34,6 +34,7 @@ const Classes = {
 
 const isPrestige = ref(false);
 const hoveredSkill = ref(null);
+const focusedSkill = ref(null);
 const showShareModal = ref(false);
 const shareUrl = ref('');
 const displayUrl = ref('');
@@ -176,8 +177,8 @@ onMounted(() => {
 <template>
 	<DragDrop />
 	<!-- інфа шо за клас пікнули -->
-	<div class="flex-col items-center justify-center h-screen main-content">
-		<div class="flex justify-center items-center gap-2">
+	<div class="flex flex-col items-center justify-center main-content">
+		<div class="flex flex-wrap justify-center items-center gap-2 class-heading">
 			<h2 class="text-4xl font-bold mb-4 text-white text-center selected_class">
 				{{ $t("selected_class") }} -
 				<span class="text-red-600 selected_class_name">{{ store.selectedClass.name }}</span>
@@ -214,15 +215,22 @@ onMounted(() => {
 				>
 			</div>
 		</div>
+		<div
+			v-if="focusedSkill"
+			class="block md:hidden text-center p-3 border border-gray-200 bg-gray-800 text-white rounded skill-detail mobile-skill-detail"
+		>
+			<h3 class="font-bold">{{ focusedSkill.name }}</h3>
+			<p>{{ focusedSkill.description }}</p>
+		</div>
 		<div class="flex justify-center w-full">
-			<div class="lg:flex lg:flex-row lg:gap-2 flex flex-col gap-2">
+			<div class="xl:flex xl:flex-row xl:gap-2 flex flex-col gap-2 perk-board">
 				<template v-for="(col, i) in Classes[store.selectedClass.name]">
-					<div class="flex flex-row lg:flex-col gap-2">
+					<div class="flex flex-row xl:flex-col gap-2 perk-column">
 						<label
 							v-for="skill in col"
 							:key="skill.name"
 							:class="[
-								'w-[80px] h-[80px] lg:w-[80px] lg:h-[80px] rounded-full border-3 transition flex items-center justify-center',
+								'perk-option rounded-full border-3 transition flex items-center justify-center',
 								'hover:border-white',
 								'bg-gray-500',
 								'border-gray-500',
@@ -233,8 +241,10 @@ onMounted(() => {
 									: '',
 								skill.isPassive ? 'border-red-600' : '',
 							]"
+							:aria-label="`${skill.name}: ${skill.description}`"
 							@mouseenter="hoveredSkill = skill"
 							@mouseleave="hoveredSkill = null"
+							@click="focusedSkill = skill"
 						>
 							<img
 								:src="
@@ -268,11 +278,11 @@ onMounted(() => {
 			</div>
 		</div>
 		<div
-			v-if="hoveredSkill"
-			class="text-center mx-auto w-[600px] mt-[20px] p-2 border border-gray-200 bg-gray-800 text-white rounded hovered-skill"
+			v-if="hoveredSkill || focusedSkill"
+			class="hidden md:block text-center mx-auto mt-[20px] p-3 border border-gray-200 bg-gray-800 text-white rounded skill-detail"
 		>
-			<h3 class="font-bold">{{ hoveredSkill.name }}</h3>
-			<p>{{ hoveredSkill.description }}</p>
+			<h3 class="font-bold">{{ (hoveredSkill || focusedSkill).name }}</h3>
+			<p>{{ (hoveredSkill || focusedSkill).description }}</p>
 		</div>
 	</div>
 
@@ -337,22 +347,60 @@ onMounted(() => {
 </template>
 
 <style scoped>
-@media (max-width: 768px) {
-	.main-content {
+.perk-option {
+	width: 80px;
+	height: 80px;
+	flex: 0 0 80px;
+}
+
+.main-content {
+	width: 100%;
+}
+
+.skill-detail {
+	width: min(100%, 600px);
+	overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) {
+	.perk-board {
+		align-items: center;
 		width: 100%;
 	}
-	.hovered-skill {
-		display: none;
-	}
-	@media (max-width: 491px) {
-	.selected_class,
-	.selected_class_name {
-		font-size: 1.5rem;
-	}
-	.selected_img{
-		display: none;
+
+	.perk-column {
+		justify-content: center;
+		flex-wrap: wrap;
+		width: 100%;
+		max-width: 360px;
 	}
 
-}
+	.perk-option {
+		--perk-size: min(64px, calc((100% - 24px) / 4));
+		width: var(--perk-size);
+		height: auto;
+		aspect-ratio: 1;
+		flex: 0 0 var(--perk-size);
+		touch-action: manipulation;
+	}
+
+	.class-heading {
+		width: 100%;
+	}
+
+	.class-heading h2 {
+		max-width: calc(100% - 56px);
+		font-size: 1.5rem;
+		overflow-wrap: anywhere;
+	}
+
+	.selected_img {
+		width: 48px;
+		height: 44px;
+	}
+
+	.skill-detail {
+		margin-top: 1rem;
+	}
 }
 </style>

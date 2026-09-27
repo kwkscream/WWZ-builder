@@ -45,7 +45,7 @@ onUnmounted(() => {
 			>
 				<nav
 					v-if="menuOpen"
-					class="absolute top-10 left-0 w-full bg-black text-white flex flex-col p-4 shadow-lg"
+					class="absolute top-10 left-0 z-20 w-full bg-black text-white flex flex-col p-4 shadow-lg"
 				>
 					<RouterLink to="/" class="p-2 hover:bg-gray-700 transition">
 						WWZ Build Planner
@@ -95,16 +95,13 @@ onUnmounted(() => {
 	}
 }
 
-@media (max-width: 412px) {
-	.logo {
-		display: none;
-	}
+@media (max-width: 640px) {
 	.nav-bar {
 		display: none;
 	}
 }
 
-@media (min-width: 413px) {
+@media (min-width: 641px) {
 	.burger-menu {
 		display: none !important;
 	}
